@@ -84,13 +84,15 @@ export const addSneakerCount = ({ shoes, ...rest }) => {
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
 // REQS: use Object.keys to solve
-export const getBrandNames = ({ brands }) => {
+export const getBrandNames = (brands) => {
   return Object.keys(brands);
 };
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
-export const totalSneakerCount = (brands) => {};
+export const totalSneakerCount = (brands) => {
+  return Object.keys(brands).reduce((acc, key) => (acc += brands[key].shoes.length), 0);
+};
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
@@ -99,4 +101,8 @@ export const totalSneakerCount = (brands) => {};
 // convertToArray({}) => []
 // Source: https://edabit.com/challenge/pPNAs5PvB3WvnDwDM
 
-export const convertToArray = () => {};
+export const convertToArray = (object) => {
+  return Object.entries(object);
+};
+// https://dev.to/muhammadawaisshaikh/converting-object-to-an-array-3718
+// found this solution here with help of indy
